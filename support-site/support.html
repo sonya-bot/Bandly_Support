@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="BandlyのFAQとお問い合わせ先。音源の取り込み、マイク、書き出し、データ削除、不具合報告をご案内します。">
+  <meta name="description" content="BandlyのFAQとお問い合わせ先。外部モデルの導入、MVSepの登録とAPIキー更新、音源の取り込み、データ削除をご案内します。">
   <title>FAQ・お問い合わせ｜Bandly</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/style.css">
@@ -17,16 +17,43 @@
   <main id="main" class="wrap">
     <div class="page-head"><p class="eyebrow">HELP &amp; CONTACT</p><h1>FAQ・お問い合わせ</h1><p class="lead">まずは、よくある質問をご確認ください。解決しない場合は、下記のメールアドレスへお問い合わせいただけます。</p></div>
     <div class="content">
-      <nav class="toc" aria-label="ページ内ナビゲーション"><a href="#faq">よくある質問</a><a href="#contact">メールで問い合わせる</a><a href="#report">不具合を報告する</a></nav>
+      <nav class="toc" aria-label="ページ内ナビゲーション"><a href="#faq">よくある質問</a><a href="#external-models">外部モデル</a><a href="#mvsep">MVSepの登録</a><a href="#api-key">APIキーの更新</a><a href="#usage-rights">利用条件</a><a href="#contact">メールで問い合わせる</a><a href="#report">不具合を報告する</a></nav>
       <h2 id="faq">よくある質問</h2>
       <div class="faq">
         <details id="import" open><summary>音源はどこから取り込めますか？</summary><div><p>「分離/再生」タブ →「曲一覧」→「＋（取り込む）」から、音声ファイルまたはパート別音源を含むフォルダを選びます。</p><p>取り込める曲の長さは10分までです。読み込みに失敗した場合は、表示されたエラーと、選んだファイルが端末から開ける状態かをご確認ください。</p></div></details>
         <details><summary>どのパートに分離できますか？</summary><div><p>同梱のBandly Baseは、ボーカル・ドラム・ベース・ギター・ピアノ・ブラス・その他の7パートを出力します。分離処理は端末上で行います。</p><p>分離結果は元の音源によって異なります。必要なパートの音量を調整してご利用ください。</p></div></details>
         <details id="microphone"><summary>チューナーや録音で、音を拾いません。</summary><div><ol><li>Bandlyのマイク使用を許可しているか、iPhoneの「設定」で確認してください。</li><li>「メニュー」→「入出力の詳細設定」で、入力機器と入力レベルをご確認ください。</li><li>外部機器を使用する場合は、接続と選択中の入力をご確認ください。</li></ol><p>マイクは、録音・チューナー・周波数特性の測定に使用します。</p></div></details>
+        <details id="external-models"><summary>外部モデルを追加するには？</summary><div>
+          <p class="small">外部モデル・オンライン分離の説明は、Bandly 1.1.0以降が対象です。</p>
+          <p>通常は、同梱のBandly Baseの利用をおすすめします。外部モデルは、必要に応じて追加する任意の機能です。通常の利用に、追加のモデルやサービスへの登録は必要ありません。</p>
+          <p>Bandlyで技術的な互換性を確認しているDemucs系のファイルは、次のONNXファイルです。</p>
+          <ul><li><code>htdemucs_6s.onnx</code></li><li><code>htdemucs_6s_fp16weights.onnx</code></li></ul>
+          <p>ファイルは、<a href="https://huggingface.co/StemSplitio/htdemucs-6s-onnx/tree/main">Demucs系ONNXモデルのダウンロードページ（StemSplitio／Hugging Face）</a>で確認できます。</p>
+          <p>このページの掲載は、取得・利用の推奨や利用許諾の保証を意味しません。配布元と元のモデルの利用条件を確認し、ご自身の用途で利用できるファイルをご用意ください。</p>
+          <ol><li>ファイルをiPhoneの「ファイル」アプリから選べる場所に保存します。</li><li>Bandlyの「メニュー」→「分離モデル」→「外部モデルを取り込む」→「ファイルから」を開き、ファイルを選択します。</li><li>検査結果を確認し、使用可能になったら「このモデルを使う」を選択します。</li></ol>
+          <p>同じファイル名でも、内容が異なるものは使用できない場合があります。また、端末の空きメモリによっては実行できません。</p>
+        </div></details>
+        <details id="mvsep"><summary>MVSepを利用するには？</summary><div>
+          <p>MVSepは、音源をサービスへ送信して分離する任意のオンライン機能です（Bandly 1.1.0以降）。ご自身のMVSepアカウントとAPIキーが必要です。</p>
+          <h3>APIキーの取得と登録</h3>
+          <ol><li><a href="https://mvsep.com/">MVSep公式サイト</a>でアカウントを作成し、ログインします。すでにアカウントがある場合は、そのアカウントでログインしてください。</li><li><a href="https://mvsep.com/user-api">APIキーページ</a>を開き、画面の案内に従ってAPIキーを取得・コピーします。</li><li>Bandlyの「メニュー」→「分離モデル」→「外部モデルを取り込む」→「API キーで追加」を開きます。</li><li>サービス欄に「MVSep」、APIキー欄に取得したキーを入力し、「追加」を押します。</li><li>検査後に「MVSep（吹奏楽）」または「MVSep（バンド）」を開き、「このモデルを使う」を選択します。</li></ol>
+          <p>吹奏楽では、トランペット・トロンボーン・ホルン・チューバ・サックス・フルート・クラリネットとその他の8パート、バンドでは、ボーカル・ドラム・ベース・ギター・ピアノとその他の6パートを扱います。分離結果は元の音源によって異なります。</p>
+          <p>音源の取り込み時には、表示される送信先・費用の説明を確認してから「確認して送信を開始」を押してください。利用条件・費用は、ご自身のアカウントと処理内容に従います。詳しくは<a href="privacy.html#online">オンライン分離とAPIキーの取り扱い</a>をご確認ください。</p>
+        </div></details>
+        <details id="api-key"><summary>MVSepのAPIキーを更新するには？</summary><div>
+          <p>APIキーは、無効になった場合やMVSepから更新の案内があった場合に、再発行・再登録が必要です。定期的にMVSepの案内を確認してください。</p>
+          <p>Bandlyに「API キーの更新が必要」と表示された場合は、次の手順で更新します。</p>
+          <ol><li>MVSepにログインし、<a href="https://mvsep.com/user-api">APIキーページ</a>で新しいキーを取得します。</li><li>Bandlyの「メニュー」→「分離モデル」から、登録済みの「MVSep（吹奏楽）」または「MVSep（バンド）」を開きます。</li><li>「API キーを変更」を押し、新しいキーを入力して「変更」を押します。</li></ol>
+          <p>同じキーを共有する登録済みモデルにも、変更が反映されます。</p>
+          <p>APIキーが無効な間は、新しい分離処理の送信が止まります。すでにMVSepで受け付けられた処理の進行確認と、結果の取得は継続します。</p>
+          <p>APIキーは第三者に共有せず、問い合わせメールにも記載しないでください。</p>
+        </div></details>
+        <details id="online-progress"><summary>オンライン分離の結果がまだ再生できません。</summary><div><p>曲の「⋯」→「処理状況の確認」で、サービス側の処理、結果の取得、音源の検証、再生準備の状況を確認できます。</p><p>一時的な通信失敗では、結果の取得を自動で再試行します。自動で復帰しない場合は、同じ画面の案内に従ってください。結果の再取得や保存済み結果の再検証は、新たに分離を依頼する操作とは異なります。</p><p>受付済みの分離はサービス側で進みます。アプリ側の処理が進まない場合は、Bandlyを開いて前面に戻してください。アプリで停止しても、サービス側の処理取消や返金が確定するわけではありません。</p></div></details>
+        <details id="usage-rights"><summary>音源や外部モデルの利用条件について</summary><div><p>音源の取り込み・オンライン送信・分離結果の利用に必要な権利や許諾をご確認ください。</p><p>外部モデルには、その配布元や元のモデルの利用条件が適用されます。MVSepには、<a href="https://mvsep.com/en/terms">サービスの利用規約</a>と、利用するモデルごとの条件が適用されます。</p><p>Bandlyで技術的に読み込み・実行できることは、あらゆる用途での利用が許諾されていることを意味しません。</p></div></details>
         <details><summary>再生しても音が出ません。</summary><div><p>iPhoneと接続機器の音量、選択している出力先、各パートの音量・ミュートをご確認ください。「メニュー」→「入出力の詳細設定」でも現在の機器を確認できます。</p></div></details>
         <details id="export"><summary>書き出したファイルはどこにありますか？</summary><div><p>iPhoneの「ファイル」アプリ →「このiPhone内」→「Bandly」→「書き出し」に保存されます。</p><p>書き出し完了画面の「共有・別の場所に保存」から、共有先や別の保存先を選べます。共有先に送ったファイルは、そのサービスやアプリでも管理してください。</p></div></details>
         <details id="storage"><summary>保存したデータを削除したいです。</summary><div><ul><li><strong>曲：</strong>「曲一覧」、または「メニュー」→「使用量の確認と削除」で削除します。曲に関連する分離パート・解析結果・録音テイクも削除されます。</li><li><strong>録音・メモ：</strong>「録音/再生」タブの一覧で削除します。</li><li><strong>測定結果：</strong>「周波数特性」タブの一覧で削除します。</li><li><strong>一時ファイル：</strong>「メニュー」→「使用量の確認と削除」→「一時ファイルを削除」で整理できます。</li></ul><p>書き出したファイルや、共有先・別の保存先にあるコピーは別に削除してください。必要な音源は、削除前に書き出して保存してください。</p></div></details>
-        <details><summary>分離完了の通知は変更できますか？</summary><div><p>「メニュー」→「分離の完了を通知」で切り替えます。通知が届かない場合は、iPhoneの「設定」でBandlyの通知が許可されているかをご確認ください。</p><p>アプリがバックグラウンドにいる間に分離が終わったとき、または失敗したときに通知します。通知には曲名が表示されます。</p></div></details>
+        <details id="notifications"><summary>分離完了の通知は変更できますか？</summary><div><p>「メニュー」→「分離の完了を通知」で切り替えます。通知が届かない場合は、iPhoneの「設定」でBandlyの通知が許可されているかをご確認ください。通知には曲名が表示されます。</p><p>MVSepでは、サービス側の分離完了後、結果の取得と端末内での再生準備が必要です。開始済みの再生準備が、iOSの許可する時間内にバックグラウンドで完了した場合は、通知設定に従って完了を通知します。サービス側の分離完了だけでは通知されません。準備が中断された場合は、Bandlyを前面に戻すと再開します。</p></div></details>
         <details><summary>不具合の報告に必要な情報はどこで確認できますか？</summary><div><p>「メニュー」→「このアプリについて」でバージョンを確認できます。同じ画面の「診断情報」から、アプリ・端末・設定の情報を表示し、コピーまたは共有できます。</p><p>診断情報は自動送信されません。内容をご確認のうえ、必要に応じて報告に添えてください。</p></div></details>
       </div>
       <section id="contact" class="contact" aria-labelledby="contact-title">
@@ -34,7 +61,7 @@
         <p class="email"><a href="mailto:soma.sugioka@cocolab.jp">soma.sugioka@cocolab.jp</a></p>
         <p class="small">メールアプリが開かない場合は、上記のアドレスをコピーしてご利用ください。このサイトに入力・送信フォームはありません。</p>
         <h3 id="report">不具合を報告するとき</h3><ul><li>Bandlyのバージョン</li><li>iPhoneの機種とiOSのバージョン</li><li>行った操作と、発生した現象</li><li>エラーがある場合は、その表示内容</li><li>必要に応じて、確認済みの診断情報</li></ul>
-        <p class="small">お問い合わせには必要な範囲の情報だけをお送りください。音源や録音、個人情報を含む画像は、送信前に内容をご確認ください。</p><a href="privacy.html">データの取り扱いを確認する →</a>
+        <p class="small">お問い合わせには必要な範囲の情報だけをお送りください。音源や録音、個人情報を含む画像は、送信前に内容をご確認ください。APIキーはメールに記載しないでください。</p><a href="privacy.html">データの取り扱いを確認する →</a>
       </section>
     </div>
   </main>
